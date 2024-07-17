@@ -12,6 +12,7 @@ import Products from '../Home/Products/Products';
 import ServiceDetails from '../ServiceDetails/ServiceDetails';
 import Checkout from '../Checkout/Checkout';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
+import Booking from '../Booking/Booking';
 
 const Routers = createBrowserRouter([
     {
@@ -52,6 +53,10 @@ const Routers = createBrowserRouter([
             path: '/checkout/:id',
             element: <ProtectedRoute><Checkout/></ProtectedRoute>,
             loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
+        },
+        {
+            path: '/booking',
+            element: <ProtectedRoute><Booking/></ProtectedRoute>
         }
 
 

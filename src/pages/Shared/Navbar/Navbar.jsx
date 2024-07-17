@@ -17,7 +17,9 @@ const Navbar = () => {
         <li className='ml-2'><NavLink  to="/services">Services</NavLink></li>
         <li className='ml-2'><NavLink  to="/about">About</NavLink></li>
         <li className='ml-2'><NavLink  to="/contact">Contact</NavLink></li>
-        <li className='ml-2'><NavLink  to="/login">Login</NavLink></li>
+        {
+            user && <li className='ml-2'><NavLink  to="/booking">My Bookings</NavLink></li>
+        }
     </>
     return (
         <div className="navbar bg-base-100 rounded-t-xl">

@@ -35,7 +35,7 @@ const ServiceDetails = () => {
                 <h1 className="absolute text-5xl font-bold left-28 text-white top-1/2 -translate-y-1/2 transform">Service Details</h1>
                 <Link to="/home"><button className="absolute rounded-t-btn bg-red-500 px-8 text-white bottom-0">Home / Service Details</button></Link>
             </div>
-            <div className='grid gap-8 lg:grid-cols-4 text-left'>
+            <div className='grid gap-8 grid-cols-1 lg:grid-cols-4 text-left'>
                 <div className=' col-span-3'>
                     <img className='h-96 w-full rounded-xl' src={img} alt="" />
                     <h1 className='text-4xl font-bold my-8'>{title}</h1>
@@ -58,7 +58,7 @@ const ServiceDetails = () => {
                         
                     </div>
                 </div>
-                <div className='col-span-1 w-full'>
+                <div className='col-span-1 '>
                     <div className='grid grid-rows-5 gap-2 bg-slate-200 rounded-xl p-8 '>
                         <h1 className='text-xl font-bold'>Services</h1>
                         {

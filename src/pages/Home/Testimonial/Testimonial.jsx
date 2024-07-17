@@ -3,9 +3,6 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './Testimonial.css';
-import image1 from '../../../assets/images/team/1.jpg'
-import image2 from '../../../assets/images/team/2.jpg'
-import image3 from '../../../assets/images/team/3.jpg'
 
 const reviews = [
     {

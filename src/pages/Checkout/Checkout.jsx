@@ -1,18 +1,20 @@
 import { useContext } from 'react';
 import detailsBanner from '../../assets/images/checkout/checkout.png'
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
 import Swal from 'sweetalert2';
 
 const Checkout = () => {
     const {user, loading} = useContext(AuthContext)
     const service = useLoaderData()
+    const navigate = useNavigate()
     const {title, price, _id, img } = service
 
     if(loading){
         <span className="loading loading-ring loading-lg"></span>
     }
 
+    
     const handleCheckout = e => {
         e.preventDefault()
         const form = e.target
@@ -27,6 +29,7 @@ const Checkout = () => {
             email,
             booking_id: _id,
             price:price,
+            service: title,
             message
         }
 
@@ -51,6 +54,7 @@ const Checkout = () => {
                   });
                 }
                 form.reset()
+                navigate('/booking')
         })
 
     }
@@ -63,6 +67,7 @@ const Checkout = () => {
                 <Link to="/home"><button className="absolute rounded-t-btn  bg-red-500 px-8 text-white bottom-0">Home / Check Out</button></Link>
             </div>
             <div className="card bg-base-100 mb-16 lg:p-16 mx-auto max-w-80 lg:max-w-4xl shrink-0 shadow-2xl">
+                    <p className='text-2xl font-bold'>{title}</p>
                 <form onSubmit={handleCheckout} className="card-body">
                     <div className='grid gap-6 grid-cols-1 lg:grid-cols-2'>
                         <div className="form-control">
