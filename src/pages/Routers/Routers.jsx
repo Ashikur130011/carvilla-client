@@ -9,6 +9,9 @@ import Contact from '../Contact/Contact';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
 import Products from '../Home/Products/Products';
+import ServiceDetails from '../ServiceDetails/ServiceDetails';
+import Checkout from '../Checkout/Checkout';
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 const Routers = createBrowserRouter([
     {
@@ -41,7 +44,15 @@ const Routers = createBrowserRouter([
             element: <Register/>
         },
         {  path: '/products', element: <Products/>},
-        
+        {  path: '/details/:id', 
+            element: <ServiceDetails/>,
+            loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
+        },
+        {
+            path: '/checkout/:id',
+            element: <ProtectedRoute><Checkout/></ProtectedRoute>,
+            loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
+        }
 
 
       ],

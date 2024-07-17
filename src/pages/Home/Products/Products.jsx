@@ -14,7 +14,7 @@ const Products = () => {
             <h2 className='text-xl font-bold text-orange-600'>Popular Products</h2>
             <h1 className='text-5xl font-bold'>Browse Our Products</h1>
             <p className=' mx-auto'>The majority have suffered alteration in some form, by injected humour, or randomised words <br /> which don't look even slightly believable.</p>
-            <div className='grid grid-cols-1 md:grid-cols-2 mx-5 lg:grid-cols-3 gap-8 justify-items-center'>
+            <div className='grid grid-cols-1  md:grid-cols-2 mx-5 lg:grid-cols-3  gap-8 justify-items-center'>
                 {
                     products.slice(1.9).map(product => <Product
                         product={product}

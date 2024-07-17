@@ -2,7 +2,7 @@ import React from 'react';
 import image1 from '../../../assets/images/team/1.jpg'
 import image2 from '../../../assets/images/team/2.jpg'
 import image3 from '../../../assets/images/team/3.jpg'
-import { FcGoogle } from "react-icons/fc";
+
 import facebook from '../../../assets/icons/facebook_145802.png'
 import instagram from '../../../assets/icons/instagram_4494488.png'
 import twitter from '../../../assets/icons/twitter_145812.png'
@@ -27,7 +27,7 @@ const Team = () => {
                 <h2 className="card-title font-bold text-3xl ">Car Engine Plug</h2>
                 <p>Engine Expart</p>
                 <div className='flex gap-2'>
-                {/* <FcGoogle /> */}
+                {/* */}
                 <img className='w-8' src={whatsapp} alt="" />
                 <img className='w-8' src={facebook} alt="" />
                 <img className='w-8' src={twitter} alt="" />
