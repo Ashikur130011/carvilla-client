@@ -47,12 +47,12 @@ const Routers = createBrowserRouter([
         {  path: '/products', element: <Products/>},
         {  path: '/details/:id', 
             element: <ServiceDetails/>,
-            loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
+            loader: ({params}) => fetch(`https://carvilla-server.vercel.app/services/${params.id}`)
         },
         {
             path: '/checkout/:id',
             element: <ProtectedRoute><Checkout/></ProtectedRoute>,
-            loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
+            loader: ({params}) => fetch(`https://carvilla-server.vercel.app/services/${params.id}`)
         },
         {
             path: '/booking',

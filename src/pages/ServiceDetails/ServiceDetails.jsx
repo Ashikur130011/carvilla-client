@@ -29,11 +29,11 @@ const ServiceDetails = () => {
     console.log(service)
 
     return (
-        <div className='mx-12'>
+        <div className=''>
             <div className="relative">
-                <img className=' w-full h-80 mx-auto my-14' src={detailsBanner} alt="" />
-                <h1 className="absolute text-5xl font-bold left-28 text-white top-1/2 -translate-y-1/2 transform">Service Details</h1>
-                <Link to="/home"><button className="absolute rounded-t-btn bg-red-500 px-8 text-white bottom-0">Home / Service Details</button></Link>
+                <img className=' w-full h-60 mx-auto my-14' src={detailsBanner} alt="" />
+                <h1 className="absolute text-5xl font-bold left-8 text-white top-1/2 -translate-y-1/2 transform">Service Details</h1>
+                <Link to="/home"><button className="absolute rounded-t-btn left-24 bg-red-500 px-8 text-white bottom-0">Home / Service Details</button></Link>
             </div>
             <div className='grid gap-8 grid-cols-1 lg:grid-cols-4 text-left'>
                 <div className=' col-span-3'>
@@ -67,7 +67,7 @@ const ServiceDetails = () => {
                                 className="bg-slate-50 flex rounded-xl items-center justify-between p-3"
                                 key={service.index}>
                                     <p className=''>{service.name}</p>
-                                    <Link to={`http://localhost:5000/services/${service.name}`}><p className="text-xl text-red-600"><BiRightArrowAlt /></p></Link>
+                                    <Link to={`https://carvilla-server.vercel.app/services/${service.name}`}><p className="text-xl text-red-600"><BiRightArrowAlt /></p></Link>
                                 </div>
                             )
                         }

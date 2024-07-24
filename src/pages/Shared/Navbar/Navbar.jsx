@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 
@@ -6,12 +6,32 @@ const Navbar = () => {
 
     const {user, logOut} = useContext(AuthContext) 
 
+    const [theme, setTheme] = useState(
+        localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
+    )
 
-    const handleLogOut = () => {
-        logOut()
-        
+    //Update State on toggle
+    const handleToggle = e => {
+        if(e.target.checked){
+            setTheme("dark")
+        }
+        else{
+            setTheme("light")
+        }
     }
 
+    useEffect ( () => {
+        localStorage.setItem("theme", theme)
+        const localTheme = localStorage.getItem("theme")
+        document.documentElement.setAttribute("data-theme", localTheme)
+    },[theme])
+
+    //handle Logout
+    const handleLogOut = () => {
+        logOut()   
+    }
+
+    //navlinks
     const navLinks = <>
         <li><NavLink to="/">Home</NavLink></li>
         <li className='ml-2'><NavLink  to="/services">Services</NavLink></li>
@@ -47,6 +67,11 @@ const Navbar = () => {
                 </div>
                 <div className='ms-4'>
                 <a className="font-bold font-serif text-3xl">Car<span className='text-red-600'>Villa</span></a>
+                <input type="checkbox"
+                    onChange={handleToggle}
+                    checked={theme === "light" ? false : true}
+                    className='toggle mx-3 theme-controller'
+                />
                 </div>
             </div>
             <div className="navbar-center hidden lg:flex">

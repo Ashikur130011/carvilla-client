@@ -42,7 +42,7 @@ const Testimonial = () => {
         autoplaySpeed: 3000,
       };
     return (
-        <div className='my-24 w-1/2 mx-auto'> 
+        <div className='my-24 lg:w-1/2 mx-auto'> 
             <div className='space-y-6  mb-16'>
             <h2 className='text-xl font-bold text-orange-600'>Testimonial</h2>
             <h1 className='text-5xl font-bold'>What Customer Says</h1>

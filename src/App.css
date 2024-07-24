@@ -3,7 +3,7 @@
   padding: .5rem;
   text-align: center;
 }
-body {
+.body {
   background-image: url('../src/assets/cool-background.png');
   background-attachment: fixed;
 }

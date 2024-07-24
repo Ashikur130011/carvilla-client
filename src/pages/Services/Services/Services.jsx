@@ -1,13 +1,32 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Service from '../Service/Service';
+import { AuthContext } from '../../provider/AuthProvider';
 const Services = () => {
     const [services, setServices] = useState([])
+    const [loading, setLoading] = useState(true)
 
-    useEffect( () => {
-        fetch('http://localhost:5000/services')
-        .then(res => res.json())
-        .then(data => setServices(data))
-    },[])
+    // useEffect( () => {
+
+    //     fetch('https://carvilla-server.vercel.app/services')
+    //     .then(res => res.json())
+    //     .then(data => setServices(data))
+    // },[])
+
+    useEffect(() => {
+        setLoading(true);  // Set loading state to true before fetching
+        fetch('https://carvilla-server.vercel.app/services')
+          .then(response =>  response.json())
+          .then(result => {
+            setServices(result);
+            setLoading(false);  // Set loading state to false after fetching
+          })
+          
+      }, [loading]);
+
+      if(loading){
+        <span className="loading loading-ring loading-lg"></span>
+      }
+
     return (
         <div className='space-y-6 my-24'>
             <h2 className='text-xl font-bold text-orange-600'>Service</h2>

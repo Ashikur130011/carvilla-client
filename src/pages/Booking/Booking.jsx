@@ -9,7 +9,7 @@ const Booking = () => {
     const {user} = useContext(AuthContext)
     const [bookings, setBookings] = useState([])
 
-    const url = `http://localhost:5000/booking?email=${user?.email}`
+    const url = `https://carvilla-server.vercel.app/booking?email=${user?.email}`
 
     const handlebookingDelete = (id) => {
         console.log('clicked')
@@ -24,7 +24,7 @@ const Booking = () => {
             confirmButtonText: "Yes, delete it!"
           }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/booking/${id}`,{
+                fetch(`https://carvilla-server.vercel.app/booking/${id}`,{
                     method: "DELETE"
                 })
                     .then(res => res.json())
@@ -46,7 +46,7 @@ const Booking = () => {
     }
 
     const handleBookingStatus = (id) => {
-        fetch(`http://localhost:5000/booking/${id}`,{
+        fetch(`https://carvilla-server.vercel.app/booking/${id}`,{
             method: "PATCH",
             headers: {
                 'content-type':"application/json"

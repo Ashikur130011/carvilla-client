@@ -5,16 +5,16 @@ import { AuthContext } from '../provider/AuthProvider';
 import Swal from 'sweetalert2';
 
 const Checkout = () => {
-    const {user, loading} = useContext(AuthContext)
+    const { user, loading } = useContext(AuthContext)
     const service = useLoaderData()
     const navigate = useNavigate()
-    const {title, price, _id, img } = service
+    const { title, price, _id, img } = service
 
-    if(loading){
+    if (loading) {
         <span className="loading loading-ring loading-lg"></span>
     }
 
-    
+
     const handleCheckout = e => {
         e.preventDefault()
         const form = e.target
@@ -28,34 +28,35 @@ const Checkout = () => {
             img,
             email,
             booking_id: _id,
-            price:price,
+            price: price,
             service: title,
             message
         }
-
         
+        
+
         console.log(order)
-        fetch('http://localhost:5000/booking', {
+        fetch('https://carvilla-server.vercel.app/booking', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
             body: JSON.stringify(order)
         })
-        .then(res => res.json())
-        .then(data=> {
-            if(data.insertedId){
-                Swal.fire({
-                    position: "top-end",
-                    icon: "success",
-                    title: "Checkout done!",
-                    showConfirmButton: false,
-                    timer: 1500
-                  });
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Checkout done!",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
                 }
                 form.reset()
                 navigate('/booking')
-        })
+            })
 
     }
 
@@ -67,7 +68,7 @@ const Checkout = () => {
                 <Link to="/home"><button className="absolute rounded-t-btn  bg-red-500 px-8 text-white bottom-0">Home / Check Out</button></Link>
             </div>
             <div className="card bg-base-100 mb-16 lg:p-16 mx-auto max-w-80 lg:max-w-4xl shrink-0 shadow-2xl">
-                    <p className='text-2xl font-bold'>{title}</p>
+                <p className='text-2xl font-bold'>{title}</p>
                 <form onSubmit={handleCheckout} className="card-body">
                     <div className='grid gap-6 grid-cols-1 lg:grid-cols-2'>
                         <div className="form-control">
@@ -80,7 +81,7 @@ const Checkout = () => {
                             <label className="label">
                                 <span className="label-text">Booking Date</span>
                             </label>
-                            <input type="date" name='date'  className="input input-bordered" required />
+                            <input type="date" name='date' className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
@@ -95,13 +96,13 @@ const Checkout = () => {
                             <input type="text" name='price' defaultValue={price} placeholder="price" className="input input-bordered" required />
                         </div>
                     </div>
-                        <div className="form-control mt-4">
-                            <label className="label">
-                                <span className="label-text">Message</span>
-                            </label>
-                            <textarea className="textarea textarea-bordered" name='message' placeholder="your message"></textarea>
-                        </div>
-                    
+                    <div className="form-control mt-4">
+                        <label className="label">
+                            <span className="label-text">Message</span>
+                        </label>
+                        <textarea className="textarea textarea-bordered" name='message' placeholder="your message"></textarea>
+                    </div>
+
                     <div className="form-control mt-6">
                         <button className="btn btn-error">Checkout</button>
                     </div>
