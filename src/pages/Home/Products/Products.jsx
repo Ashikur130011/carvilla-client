@@ -13,7 +13,7 @@ const Products = () => {
     // },[])
     useEffect(() => {
         setLoading(true);  // Set loading state to true before fetching
-        fetch('https://carvilla-server.vercel.app/services')
+        fetch('https://carvilla-server.vercel.app/products')
           .then(response => {
             if (!response.ok) {
               throw new Error('Network response was not ok');
